@@ -13,6 +13,7 @@ body {
     max-width: 500px;
     margin: 150px auto;
     border-radius: 10px;
+    box-shadow: 5px 3px 30px black;
 }
 
 .inputDiv {
@@ -72,15 +73,16 @@ body {
 }
 .recipeContainer{
     margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+   
 }
-.recipeContainer ul {
-    display: flex;
-    align-items: center;
-    gap: 7rem;
-
+.recipeContainer  {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    column-gap: 1.5rem;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 .recipeContainer li {
     line-height: 2rem;
@@ -105,3 +107,4 @@ body {
     text-decoration: none;
     color: #000;
 }
+
