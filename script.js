@@ -10,9 +10,17 @@ const content = document.querySelector(".content");
 const ins = document.querySelector(".instructions");
 const recipeBtn = document.querySelector(".recipe-btn");
 const closeBtn = document.querySelector(".fa-times");
-
+const pan = document.getElementById("cooking")
 content.style.display = "none";
 ins.style.display = "none";
+
+
+let insContent = document.querySelector(".inscontent");
+if (!insContent) {
+    insContent = document.createElement("div");
+    insContent.className = "inscontent";
+    ins.appendChild(insContent);
+}
 
 async function recipe() {
 	const api = await fetch(
@@ -23,18 +31,27 @@ async function recipe() {
 	}
 	const response = await api.json();
 	if (!response.meals) {
-		content.innerHTML = "";
+		content.style.display = "none";
 		inputDiv.value = "";
 		swal("Not found", "the requested food name could not be found");
 	} else if (inputDiv.value === "") {
-		content.innerHTML = "";
+		content.style.display = "none";
 		swal("Please enter a food name !");
 	} else {
+		pan.style.display = "none"
+		insContent.innerHTML = response.meals[0].strInstructions;
+		const recipeData = {
+            inputValue: inputDiv.value,
+            // Diğer verileri de buraya ekleyin
+        };
+		sessionStorage.setItem("recipeData", JSON.stringify(recipeData))
 		imgContent.innerHTML = response.meals[0].strArea;
 		imgSpan.innerHTML = response.meals[0].strMeal;
 		cardImg.src = response.meals[0].strMealThumb;
 
 		content.style.display = "block";
+		cardImg.style.display = "block";
+
 		// Clear previous content in recipeContainer and recipeMeasure
 		recipeContainer.innerHTML = "";
 
@@ -53,7 +70,9 @@ async function recipe() {
 	}
 }
 
-searchBtn.addEventListener("click", recipe);
+searchBtn.addEventListener("click", () => {
+	recipe();
+});
 // recipeContainer.innerHTML = "";
 // recipeMeasure.innerHTML = "";
 
@@ -62,6 +81,26 @@ function viewRecipe() {
 }
 
 recipeBtn.addEventListener("click", viewRecipe);
-closeBtn.addEventListener("click",()=>{
-	ins.style.display = "none"
-})
+
+closeBtn.addEventListener("click", () => {
+	ins.style.display = "none";
+});
+
+inputDiv.addEventListener("keyup", (event) => {
+	if (event.key === "Enter") {
+		recipe();
+	}
+});
+
+// Sayfa yüklendiğinde önceki verileri geri al
+window.addEventListener("load", () => {
+    const savedData = sessionStorage.getItem("recipeData");
+    if (savedData) {
+        const parsedData = JSON.parse(savedData);
+        // Veriyi kullanarak sayfayı güncelle
+        inputDiv.value = parsedData.inputValue;
+        // Diğer elementleri de güncelleyebilirsiniz
+		recipe()
+    }
+
+});
