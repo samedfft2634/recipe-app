@@ -14,6 +14,7 @@ body {
     margin: 150px auto;
     border-radius: 10px;
     box-shadow: 5px 3px 30px black;
+    position: relative;
 }
 
 .inputDiv {
@@ -28,6 +29,7 @@ body {
     border: none;
     border-bottom: 3px solid #000;
     outline: none;
+    margin-bottom: 5px;
 }
 
 .inputDiv button {
@@ -108,3 +110,64 @@ body {
     color: #000;
 }
 
+
+
+.instructions {
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    padding: 1.5rem;
+    padding-top: 5rem;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+
+.instructions i {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.instructions i:hover {
+    background-color: lightgray;
+    border-radius: 50%; 
+}
+
+/* .exit {
+    animation: exit 5s ease 0s 1 normal forwards;
+} */
+
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* @keyframes exit {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+} */

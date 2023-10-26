@@ -5,27 +5,41 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Recipe App</title>
 		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
 		<div class="cardContainer">
 			<div class="inputDiv">
-				<input type="text" />
+				<input type="text" placeholder="Search Food"/>
 				<button type="button" class="searchBtn">Search</button>
 			</div>
-			<div class="cardImg">
-				<img src="./assets/tonkatsu.jpeg" alt="" />
-				<div class="imgContent">
-					<span>Tonkatsu Park</span>
-					<p>Japanese</p>
+			<div class="content">
+				<div class="cardImg">
+					<img src="./assets/tonkatsu.jpeg" alt="" />
+					<div class="imgContent">
+						<span>Tonkatsu Park</span>
+						<p>Japanese</p>
+					</div>
 				</div>
-			</div>
-			<div class="recipeContainer">
-			</div>
-			<div class="recipteBtn">
-				<button><a href="#">View Recipe</a></button>
+				<div class="recipeContainer"></div>
+				<div class="recipteBtn">
+					<button><a href="#" class="recipe-btn">View Instructions</a></button>
+				</div>
+				<div class="instructions">
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae debitis assumenda et molestiae nam non tempora aspernatur dignissimos veritatis? Alias.</p>
+					<i class="fas fa-times"></i>
+				</div>
 			</div>
 		</div>
 
 		<script src="./script.js"></script>
+		<script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 	</body>
 </html>
+
+
+// 1 hata enter ve search btn , bos girdi ve yanlis request olunca pencere acilmasin.
+// instruction kisminini ekle yazdir
+// yeni girdide view instructions deyince eskiyi silsin
+// exit animition
+// extra
