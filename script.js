@@ -40,11 +40,7 @@ async function recipe() {
 	} else {
 		pan.style.display = "none"
 		insContent.innerHTML = response.meals[0].strInstructions;
-		const recipeData = {
-            inputValue: inputDiv.value,
-            // Diğer verileri de buraya ekleyin
-        };
-		sessionStorage.setItem("recipeData", JSON.stringify(recipeData))
+		
 		imgContent.innerHTML = response.meals[0].strArea;
 		imgSpan.innerHTML = response.meals[0].strMeal;
 		cardImg.src = response.meals[0].strMealThumb;
@@ -93,14 +89,3 @@ inputDiv.addEventListener("keyup", (event) => {
 });
 
 // Sayfa yüklendiğinde önceki verileri geri al
-window.addEventListener("load", () => {
-    const savedData = sessionStorage.getItem("recipeData");
-    if (savedData) {
-        const parsedData = JSON.parse(savedData);
-        // Veriyi kullanarak sayfayı güncelle
-        inputDiv.value = parsedData.inputValue;
-        // Diğer elementleri de güncelleyebilirsiniz
-		recipe()
-    }
-
-});
