@@ -8,9 +8,11 @@
 }
 
 body {
-	background-color: #ffe53b;
-	background-image: linear-gradient(147deg, #ffe53b 0%, #ff2525 74%);
+    background-color: #f8c02a;
+  
 	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 	height: 100vh;
 }
 
@@ -175,9 +177,7 @@ body {
     /* border: 5px solid green; */
 }
 
-/* .exit {
-    animation: exit 5s ease 0s 1 normal forwards;
-} */
+
 
 @keyframes myAnim {
 	0% {
@@ -203,27 +203,7 @@ body {
 	}
 } 
 
-@media screen and (max-width: 566px) {
-    .cardContainer {
-        width: 95%;
-        margin: 30px auto;
-        border-radius: 10px;
-        box-shadow: 5px 3px 30px black;
-        position: relative;
-    }
-    .recipeContainer  {
-        display: grid;
-        grid-template-columns: repeat(1, auto);
-        justify-content: center;
-        column-gap: 1.5rem;
-        font-size: 13px;
-        font-weight: bold;
-        font-family: sans-serif;
-    }
-    .instructions {
-        font-size: 1rem;
-    }
-}
+
 #cooking {
 	position: relative;
 	margin: 0 auto;
@@ -231,6 +211,8 @@ body {
 	width: 45vh;
 	height: 45vh;
 	overflow: hidden;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+
 }
 #cooking .bubble {
 	position: absolute;
@@ -439,4 +421,29 @@ body {
 		transform: scale(1, 1);
 		opacity: 0.25;
 	}
+}
+
+@media screen and (max-width: 566px) {
+    .cardContainer {
+        width: 95%;
+        margin: 30px auto;
+        border-radius: 10px;
+        box-shadow: 5px 3px 30px black;
+        position: relative;
+    }
+    .recipeContainer  {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        justify-content: center;
+        column-gap: 1.5rem;
+        font-size: 13px;
+        font-weight: bold;
+        font-family: sans-serif;
+    }
+    .instructions {
+        font-size: 1rem;
+    }
+    .inputDiv input{
+        z-index: 9999;
+    }
 }
